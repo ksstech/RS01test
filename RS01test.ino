@@ -308,8 +308,8 @@ void testAnalogIN(void) {
   sysMessageLn("Loop testing inputs, any key to exit.");
   while(checkSerials() == 0) {
     for (int i = 0; i < sizeof(analogPin); ++i) {
-      int av = analogRead(analogPin[i]);
-      float vct = ( i < 2) ? (av * 0.0128) : (av * 0.00161211 * 3.81162);   // 3.3V/4095 -> 0.000805860805861 - 11 bit 0.001612115290669
+      int av = analogRead(analogPin[i]);                                    // 11bit  3.3V/2047 -> 0.001612115290669
+      float vct = ( i < 2) ? (av * 0.0128) : (av * 0.00161211 * 3.81162);   // 12bit  3.3V/4095 -> 0.000805860805861
       // To minimise reporting small changes in value read we allow some fluctuation
       if ((abs(vct - analogVal[i]) / analogVal[i]) > (PERC_FLUCTUATION / 100.0))
         fmtMessageLn(" ADC %d Value = %d - %f%s", i, av, vct, (i < 2) ? "mA" : "V");
