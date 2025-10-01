@@ -4,8 +4,8 @@
 #include <Wire.h>
 #include <OneWire.h>
 
-#include <../libraries/FormattedMessages.h>
-#include <../libraries/EspReporting.h>
+#include <../libraries/PrivateLibs/FormattedMessages.h>
+#include <../libraries/PrivateLibs/EspReporting.h>
 
 // ####################################### General macros ##########################################
 
